@@ -17,4 +17,19 @@ class AppTypography {
     fontWeight: .w700
   );
 
+  static TextStyle labelLarge = TextStyle(
+    fontSize: 18,
+    fontWeight: .w400
+  );
+
+  static TextStyle labelMedium = TextStyle(
+    fontSize: 16,
+    fontWeight: .w400
+  );
+
+  static TextStyle labelSmall = TextStyle(
+    fontSize: 14,
+    fontWeight: .w400
+  );
+
 }

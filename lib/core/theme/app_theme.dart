@@ -16,6 +16,12 @@ class AppTheme {
       headlineLarge: AppTypography.headlineLargeStyle,
       headlineMedium: AppTypography.headlineMediumStyle,
       headlineSmall: AppTypography.headlineSmallStyle,
+
+
+      // labels
+      labelLarge: AppTypography.labelLarge,
+      labelMedium: AppTypography.labelMedium,
+      labelSmall: AppTypography.labelLarge,
       
     ),
   );
