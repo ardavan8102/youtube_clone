@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/core/consts/dimens.dart';
 import 'package:youtube_clone/core/extensions/sized_box.dart';
+import 'package:youtube_clone/features/helpers/handle_request.dart';
+import 'package:youtube_clone/features/models/video_model.dart';
+import 'package:youtube_clone/features/services/youtube_api.dart';
 import 'package:youtube_clone/presentation/widgets/lists/categorywise_list.dart';
 import 'package:youtube_clone/presentation/widgets/main_widgets/app_bar.dart';
 import 'package:youtube_clone/presentation/widgets/main_widgets/bottom_navbar.dart';
@@ -14,6 +19,26 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   int selectedCategoryIndex = 0;
+
+  final YoutubeApiService _youtubeApiService = YoutubeApiService();
+  
+  late List<VideoModel> videos;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVideos();
+  }
+
+
+  Future<void> _loadVideos() async {
+    await handleRequest(
+      () async {
+        videos = await _youtubeApiService.fetchVideos();
+        log('videos count : ${videos.length}');
+      }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
